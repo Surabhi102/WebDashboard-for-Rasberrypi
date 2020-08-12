@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+   <title>Current Status</title>
+</head>
+<style>
+h1,h3{
+    text-align:center;
+    }
+button {
+  background-color: #111463;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+<body style="background-color:pink">
+   <h1>Device Listing and Status</h1>
+
+   {% for pin in pins %}
+   <h3>The {{ pins[pin].name }}
+   {% if pins[pin].state == true %}
+      is currently on <br><br> <a  href="/{{pin}}/off"> <button> turn off </button></a>
+   {% else %}
+      is currently off <br><br> <a href="/{{pin}}/on"><button> turn On </button></a>
+   {% endif %}
+   </h3>
+   {% endfor %}
+   <br>
+   <br>
+   <img src="/graph/">
+
+  
+
+</body>
+</html>
